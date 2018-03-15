@@ -91,7 +91,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">3</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">4</span></li></ul>
               </li>
             
           
@@ -201,6 +201,102 @@
 </ul>
 </blockquote>
 </li>
+</ul>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2018/03/12/校园网(1)/" >
+  校园网绕过web认证
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2018/03/12/校园网(1)/"><span class="article-date">
+  2018-03-12
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <ul>
+<li><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4></li>
+<li>目前这样的适用(其他的我还没试过)</li>
+<li><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_3.png" alt=""></li>
+<li><h4 id="1-有一台用作转发的服务器"><a href="#1-有一台用作转发的服务器" class="headerlink" title="1 有一台用作转发的服务器"></a>1 有一台用作转发的服务器</h4><blockquote>
+<h4 id="百度阿里-有梦想的去微软试用机"><a href="#百度阿里-有梦想的去微软试用机" class="headerlink" title="百度阿里(有梦想的去微软试用机)"></a>百度阿里(有梦想的去微软试用机)</h4><p>需要远程ssh</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>ssh -p xxx(你设定的端口) xxx(用户名)@xxx.xxx.xxx.xxx(你的服务器ip)</p>
+</blockquote>
+<ul>
+<li><p>需要服务器管理防火墙开启UDP 53端口(打开方法自行百度)</p>
+<blockquote>
+<p>可以用xhell连接并传送vpnserver.tar.gz文件到服务器</p>
+</blockquote>
+</li>
+<li><p>运行下面命令</p>
+<blockquote>
+<h4 id="yum-install-gcc-gcc-c-make-tar-y"><a href="#yum-install-gcc-gcc-c-make-tar-y" class="headerlink" title="$: yum install gcc gcc-c++ make tar -y"></a>$: yum install gcc gcc-c++ make tar -y</h4><h4 id="cd-root"><a href="#cd-root" class="headerlink" title="$: cd /root"></a>$: cd /root</h4><h4 id="tar-zxvf-vpnserver"><a href="#tar-zxvf-vpnserver" class="headerlink" title="$: tar -zxvf vpnserver"></a>$: tar -zxvf vpnserver</h4></blockquote>
+</li>
+<li><p>解压完毕(then)运行源码</p>
+<blockquote>
+<h4 id="cd-vpnserver"><a href="#cd-vpnserver" class="headerlink" title="$: cd vpnserver"></a>$: cd vpnserver</h4><h4 id="install-sh"><a href="#install-sh" class="headerlink" title="$: ./.install.sh"></a>$: ./.install.sh</h4></blockquote>
+</li>
+<li><p>然后根据提示输入1 回车</p>
+</li>
+<li><p>then</p>
+<blockquote>
+<h4 id="vpnserver-start"><a href="#vpnserver-start" class="headerlink" title="$: ./vpnserver start"></a>$: ./vpnserver start</h4><h4 id="vpncmd"><a href="#vpncmd" class="headerlink" title="$: ./vpncmd"></a>$: ./vpncmd</h4></blockquote>
+</li>
+<li><p>选1两次回车</p>
+</li>
+<li>此时显示<blockquote>
+<h4 id="VPN-server-gt"><a href="#VPN-server-gt" class="headerlink" title="VPN server&gt;"></a>VPN server&gt;</h4></blockquote>
+</li>
+</ul>
+<blockquote>
+<p>使用openvpn在服务器端开启服务</p>
+<ul>
+<li><h4 id="你的电脑安装管理工具"><a href="#你的电脑安装管理工具" class="headerlink" title="你的电脑安装管理工具"></a>你的电脑安装管理工具<img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81.jpg" alt=""></h4></li>
+</ul>
+</blockquote>
+<ul>
+<li><p>新建连接</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_4.jpg" alt="see_1"></h4></li>
+<li><h4 id="点击连接-输入密码，确认密码"><a href="#点击连接-输入密码，确认密码" class="headerlink" title="点击连接 输入密码，确认密码"></a>点击连接 输入密码，确认密码</h4></li>
+<li>选择 VPN 的其他高级配置</li>
+<li>否</li>
+<li>确定</li>
+<li><h4 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_5.jpg" alt="see_2"></h4><h4 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_6.jpg" alt="see_3"></h4><h4 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_7.jpg" alt="see_4"></h4><h4 id="-4"><a href="#-4" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_8.jpg" alt="see_5"></h4><h4 id="-5"><a href="#-5" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_9.jpg" alt="see_6"></h4><h4 id="-6"><a href="#-6" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_10.jpg" alt="see_7"></h4><h4 id="-7"><a href="#-7" class="headerlink" title=""></a><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_11.jpg" alt="see_8"></h4><h4 id="-8"><a href="#-8" class="headerlink" title=""></a><img src="" alt="see_9"></h4></li>
+<li><h4 id="生成的文件把后缀为-l3的-ovpn文件解压出来既可"><a href="#生成的文件把后缀为-l3的-ovpn文件解压出来既可" class="headerlink" title="生成的文件把后缀为_l3的.ovpn文件解压出来既可"></a>生成的文件把后缀为_l3的.ovpn文件解压出来既可</h4></li>
+<li>并更改”.ovpn”文件中的服务器地址和转发端口(改为你的   服务器ip和53端口)</li>
+<li>原1 -&gt; 更改为2<blockquote>
+<h4 id="1-remote-vpnxxxxxxx-v4-sedns-cn-1194"><a href="#1-remote-vpnxxxxxxx-v4-sedns-cn-1194" class="headerlink" title="1:    remote vpnxxxxxxx.v4.sedns.cn 1194"></a>1:    remote vpnxxxxxxx.v4.sedns.cn 1194</h4><h4 id="2-remote-xxx-xxx-xxx-xxx-53"><a href="#2-remote-xxx-xxx-xxx-xxx-53" class="headerlink" title="2:    remote xxx.xxx.xxx.xxx 53"></a>2:    remote xxx.xxx.xxx.xxx 53</h4></blockquote>
+</li>
+<li><h4 id="xxx-xxx-xxx-xxx-为你的服务器ip"><a href="#xxx-xxx-xxx-xxx-为你的服务器ip" class="headerlink" title="xxx.xxx.xxx.xxx 为你的服务器ip"></a>xxx.xxx.xxx.xxx 为你的服务器ip</h4></li>
+<li><h4 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h4><h4 id="连接-先连接到你的校园网"><a href="#连接-先连接到你的校园网" class="headerlink" title="连接(先连接到你的校园网)"></a>连接(先连接到你的校园网)</h4>安装openvpn<img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_1.jpg" alt=""><br>用安装好的openvpn打开之前生成并配置好的 “.ovpn”文件 then 接受 之后输入用户的账号和密码即可<h4 id="连接完成"><a href="#连接完成" class="headerlink" title="连接完成 "></a>连接完成 <img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%95%E8%BF%87web%E8%AE%A4%E8%AF%81_2.png" alt=""></h4></li>
+<li>可以再检查一下ip是否为你服务器的ip</li>
+<li><h3 id="完成！"><a href="#完成！" class="headerlink" title="完成！"></a>完成！</h3></li>
+<li><h4 id="电脑端同理"><a href="#电脑端同理" class="headerlink" title="电脑端同理"></a>电脑端同理</h4>有疑问<a href="https://github.com/SWBMESSI" target="_blank" rel="noopener">我github here</a></li>
 </ul>
 
         
