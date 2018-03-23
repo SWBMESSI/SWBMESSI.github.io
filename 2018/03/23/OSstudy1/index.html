@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="AKA卓智 study">
 <meta property="og:description" content="进程的基本状态:三种基本状态:     就绪状态:进程具备运行条件，等待系统分配处理器以便行。     等待状态:又称为阻塞(blocked)态或睡眠(sleep)态，指进程不具备运行条件，正在等待某个事件的完成。     运行状态:进程占有处理器正在运行。 几种状态的相互转换: 进程的同步经典生产者与消费者问题    生产者生产的时候消费者不能消费    消费者消费的时候生产者不能生产    缓">
 <meta property="og:image" content="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/OSstudy.jpg">
-<meta property="og:updated_time" content="2018-03-23T13:42:32.111Z">
+<meta property="og:updated_time" content="2018-03-23T13:44:47.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS进程 study">
 <meta name="twitter:description" content="进程的基本状态:三种基本状态:     就绪状态:进程具备运行条件，等待系统分配处理器以便行。     等待状态:又称为阻塞(blocked)态或睡眠(sleep)态，指进程不具备运行条件，正在等待某个事件的完成。     运行状态:进程占有处理器正在运行。 几种状态的相互转换: 进程的同步经典生产者与消费者问题    生产者生产的时候消费者不能消费    消费者消费的时候生产者不能生产    缓">
@@ -176,9 +176,7 @@
 <h4 id="进程的同步"><a href="#进程的同步" class="headerlink" title="进程的同步"></a>进程的同步</h4><h5 id="经典生产者与消费者问题"><a href="#经典生产者与消费者问题" class="headerlink" title="经典生产者与消费者问题"></a>经典生产者与消费者问题</h5><blockquote>
 <p>   生产者生产的时候消费者不能消费<br>    消费者消费的时候生产者不能生产<br>    缓冲区空时消费者不能消费<br>    缓冲区满时生产者不能生产</p>
 </blockquote>
-<h4 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h4><h5 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h5><h5 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h5><h5 id="AND型信号量"><a href="#AND型信号量" class="headerlink" title="AND型信号量"></a>AND型信号量</h5><h5 id="信号量集"><a href="#信号量集" class="headerlink" title="信号量集"></a>信号量集</h5><p>####用整型信号量解决生产者消费者问题-C++</p>
-<p>####源码可运行</p>
-<pre><code>#include&lt;iostream&gt;
+<h4 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h4><h5 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h5><h5 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h5><h5 id="AND型信号量"><a href="#AND型信号量" class="headerlink" title="AND型信号量"></a>AND型信号量</h5><h5 id="信号量集"><a href="#信号量集" class="headerlink" title="信号量集"></a>信号量集</h5><h4 id="用整型信号量解决生产者消费者问题-C"><a href="#用整型信号量解决生产者消费者问题-C" class="headerlink" title="用整型信号量解决生产者消费者问题-C++"></a>用整型信号量解决生产者消费者问题-C++</h4><h4 id="源码可运行"><a href="#源码可运行" class="headerlink" title="源码可运行"></a>源码可运行</h4><pre><code>#include&lt;iostream&gt;
 #include&lt;thread&gt;
 #include&lt;stdio.h&gt;
 int S = 2;//`````````````````````信号

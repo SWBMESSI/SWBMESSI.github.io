@@ -187,9 +187,7 @@
 <h4 id="进程的同步"><a href="#进程的同步" class="headerlink" title="进程的同步"></a>进程的同步</h4><h5 id="经典生产者与消费者问题"><a href="#经典生产者与消费者问题" class="headerlink" title="经典生产者与消费者问题"></a>经典生产者与消费者问题</h5><blockquote>
 <p>   生产者生产的时候消费者不能消费<br>    消费者消费的时候生产者不能生产<br>    缓冲区空时消费者不能消费<br>    缓冲区满时生产者不能生产</p>
 </blockquote>
-<h4 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h4><h5 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h5><h5 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h5><h5 id="AND型信号量"><a href="#AND型信号量" class="headerlink" title="AND型信号量"></a>AND型信号量</h5><h5 id="信号量集"><a href="#信号量集" class="headerlink" title="信号量集"></a>信号量集</h5><p>####用整型信号量解决生产者消费者问题-C++</p>
-<p>####源码可运行</p>
-<pre><code>#include&lt;iostream&gt;
+<h4 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h4><h5 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h5><h5 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h5><h5 id="AND型信号量"><a href="#AND型信号量" class="headerlink" title="AND型信号量"></a>AND型信号量</h5><h5 id="信号量集"><a href="#信号量集" class="headerlink" title="信号量集"></a>信号量集</h5><h4 id="用整型信号量解决生产者消费者问题-C"><a href="#用整型信号量解决生产者消费者问题-C" class="headerlink" title="用整型信号量解决生产者消费者问题-C++"></a>用整型信号量解决生产者消费者问题-C++</h4><h4 id="源码可运行"><a href="#源码可运行" class="headerlink" title="源码可运行"></a>源码可运行</h4><pre><code>#include&lt;iostream&gt;
 #include&lt;thread&gt;
 #include&lt;stdio.h&gt;
 int S = 2;//`````````````````````信号
