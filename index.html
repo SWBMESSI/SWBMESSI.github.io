@@ -91,7 +91,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">3</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">4</span></li></ul>
               </li>
             
           
@@ -144,6 +144,172 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2018/03/23/OSstudy1/" >
+  OS进程 study
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2018/03/23/OSstudy1/"><span class="article-date">
+  2018-03-23
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h4 id="进程的基本状态"><a href="#进程的基本状态" class="headerlink" title="进程的基本状态:"></a>进程的基本状态:</h4><pre><code>三种基本状态:
+    就绪状态:进程具备运行条件，等待系统分配处理器以便行。
+    等待状态:又称为阻塞(blocked)态或睡眠(sleep)态，指进程不具备运行条件，正在等待某个事件的完成。
+    运行状态:进程占有处理器正在运行。
+</code></pre><h4 id="几种状态的相互转换"><a href="#几种状态的相互转换" class="headerlink" title="几种状态的相互转换:"></a>几种状态的相互转换:</h4><p><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/OSstudy.jpg" alt="状态转换"></p>
+<p>####进程的同步</p>
+<p>#####经典生产者与消费者问题</p>
+<blockquote>
+<p>   生产者生产的时候消费者不能消费<br>    消费者消费的时候生产者不能生产<br>    缓冲区空时消费者不能消费<br>    缓冲区满时生产者不能生产</p>
+</blockquote>
+<p>####信号量机制</p>
+<p>#####整型信号量</p>
+<p>#####记录型信号量</p>
+<p>#####AND型信号量</p>
+<p>#####信号量集</p>
+<p>####用整型信号量解决生产者消费者问题-C++</p>
+<p>####源码可运行</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;thread&gt;
+#include&lt;stdio.h&gt;
+int S = 2;//`````````````````````信号
+
+using namespace std;
+
+typedef struct Git {
+
+int is_empty;
+int is_full;
+}GIT;
+
+typedef struct{//--------------------------buffer
+
+ int value;
+ struct provess_control_block *list;
+
+}semaphore;
+
+
+void wait(int S){//--------------------------P
+
+while(S &lt;= 0);
+S--;
+}
+
+void signal(int S){//--------------------------V
+
+S++;
+}
+
+void waitS(Git *buffer){//--------------------P2
+
+while(buffer -&gt;is_full &lt;= 0);
+
+}
+
+void waitSS(Git *buffer){//------------------------------P3
+
+while(buffer -&gt;is_empty &lt;= 0);
+
+}
+
+int signalS(){
+
+return 0;
+}
+
+void t1(Git *buffer){//-----------------------------test
+
+    waitSS(buffer);
+    wait(S);
+    buffer-&gt;is_empty  = (buffer-&gt;is_empty)-1;
+    buffer-&gt;is_full = 5 - buffer-&gt;is_empty;
+    signal(S);
+    signalS();
+    printf(&quot;++++++\nhave:%d\n&quot;,buffer-&gt;is_full);
+}
+
+void t2(Git *buffer){//-----------------------------test
+
+    waitS(buffer);
+    wait(S);
+    buffer-&gt;is_empty  =  (buffer-&gt;is_empty)+1;
+    buffer-&gt;is_full   =  5 - buffer-&gt;is_empty ;
+    signalS();
+    printf(&quot;------\nhave:%d\n&quot;,buffer-&gt;is_full);
+
+}
+
+int main()
+{
+    Git *buffer = new Git;
+    buffer -&gt; is_empty = 5;                     //设定仓库的容量为5
+    buffer -&gt;is_full = 0;
+    cout&lt;&lt;buffer&lt;&lt;endl;
+    //int sign;
+
+  while(1){                                        //循环里是创建的进程
+        thread th1(t1,buffer); 
+        thread th2(t1,buffer);
+        thread th3(t1,buffer);
+        thread th4(t1,buffer);
+        thread th5(t1,buffer);
+        thread th6(t2,buffer);
+        thread th7(t2,buffer);
+        thread th8(t2,buffer);
+        thread th9(t2,buffer);
+        thread th10(t2,buffer);
+
+        th10.join();
+        th9.join();
+        th8.join();
+        th7.join();
+        th6.join();
+        th5.join();
+        th4.join();
+        th3.join();
+        th2.join();
+        th1.join();
+  //  thread th7()        
+ }
+cout &lt;&lt; &quot;here is main&quot; &lt;&lt; endl; 
+
+return 0;
+}
+</code></pre><p>#####源码运行<br>    g++ xxx.cpp  -o test - lpthread</p>
+<p>#####gcc使用c++11</p>
+<p>#####取别名<br>    alias g++11=”g++ -std=c++11”<br>然后再编译.cpp文件</p>
+<p>#####或者<br>    g++ -g -Wall -std=c++11 main.cpp -o test -lpthread</p>
+<p>#####运行<br>    ./test</p>
+<p>####整型信号量的弊端总所周知cpu忙等</p>
+<p>####下一篇:利用管程解决生产者消费者问题</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
