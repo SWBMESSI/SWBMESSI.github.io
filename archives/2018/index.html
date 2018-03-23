@@ -184,17 +184,10 @@
     等待状态:又称为阻塞(blocked)态或睡眠(sleep)态，指进程不具备运行条件，正在等待某个事件的完成。
     运行状态:进程占有处理器正在运行。
 </code></pre><h4 id="几种状态的相互转换"><a href="#几种状态的相互转换" class="headerlink" title="几种状态的相互转换:"></a>几种状态的相互转换:</h4><p><img src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/OSstudy.jpg" alt="状态转换"></p>
-<p>####进程的同步</p>
-<p>#####经典生产者与消费者问题</p>
-<blockquote>
+<h4 id="进程的同步"><a href="#进程的同步" class="headerlink" title="进程的同步"></a>进程的同步</h4><h5 id="经典生产者与消费者问题"><a href="#经典生产者与消费者问题" class="headerlink" title="经典生产者与消费者问题"></a>经典生产者与消费者问题</h5><blockquote>
 <p>   生产者生产的时候消费者不能消费<br>    消费者消费的时候生产者不能生产<br>    缓冲区空时消费者不能消费<br>    缓冲区满时生产者不能生产</p>
 </blockquote>
-<p>####信号量机制</p>
-<p>#####整型信号量</p>
-<p>#####记录型信号量</p>
-<p>#####AND型信号量</p>
-<p>#####信号量集</p>
-<p>####用整型信号量解决生产者消费者问题-C++</p>
+<h4 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h4><h5 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h5><h5 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h5><h5 id="AND型信号量"><a href="#AND型信号量" class="headerlink" title="AND型信号量"></a>AND型信号量</h5><h5 id="信号量集"><a href="#信号量集" class="headerlink" title="信号量集"></a>信号量集</h5><p>####用整型信号量解决生产者消费者问题-C++</p>
 <p>####源码可运行</p>
 <pre><code>#include&lt;iostream&gt;
 #include&lt;thread&gt;
@@ -303,14 +296,12 @@ cout &lt;&lt; &quot;here is main&quot; &lt;&lt; endl;
 
 return 0;
 }
-</code></pre><p>#####源码运行<br>    g++ xxx.cpp  -o test - lpthread</p>
-<p>#####gcc使用c++11</p>
-<p>#####取别名<br>    alias g++11=”g++ -std=c++11”<br>然后再编译.cpp文件</p>
-<p>#####或者<br>    g++ -g -Wall -std=c++11 main.cpp -o test -lpthread</p>
-<p>#####运行<br>    ./test</p>
-<p>####整型信号量的弊端总所周知cpu忙等</p>
-<p>####下一篇:利用管程解决生产者消费者问题</p>
-
+</code></pre><h5 id="源码运行"><a href="#源码运行" class="headerlink" title="源码运行"></a>源码运行</h5><pre><code>g++ xxx.cpp  -o test - lpthread
+</code></pre><h5 id="gcc使用c-11"><a href="#gcc使用c-11" class="headerlink" title="gcc使用c++11"></a>gcc使用c++11</h5><h5 id="取别名"><a href="#取别名" class="headerlink" title="取别名"></a>取别名</h5><pre><code>alias g++11=&quot;g++ -std=c++11&quot;
+</code></pre><p>然后再编译.cpp文件</p>
+<h5 id="或者"><a href="#或者" class="headerlink" title="或者"></a>或者</h5><pre><code>g++ -g -Wall -std=c++11 main.cpp -o test -lpthread
+</code></pre><h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><pre><code>./test
+</code></pre><h4 id="整型信号量的弊端总所周知cpu忙等"><a href="#整型信号量的弊端总所周知cpu忙等" class="headerlink" title="整型信号量的弊端总所周知cpu忙等"></a>整型信号量的弊端总所周知cpu忙等</h4><h4 id="下一篇-利用管程解决生产者消费者问题"><a href="#下一篇-利用管程解决生产者消费者问题" class="headerlink" title="下一篇:利用管程解决生产者消费者问题"></a>下一篇:利用管程解决生产者消费者问题</h4>
         
       </div>
     </div>
