@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="进程通信
+first 创建进程 UNIXfork函数命令行通过 
+man fork 
+查看功能和用法
+fork函数将运行着的程序分成2（多）个（几乎）完全一样的进程，每个进程都启动一个从代码的同一位置开始执行的线程。这两个进程中的线程继续执行，就像是两个用户同时启动了该应用程序的两个副本。
+通过PI" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>AKA卓智 study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="进程通信 first 创建进程 UNIXfork函数命令行通过  man fork  查看功能和用法 fork函数将运行着的程序分成2（多）个（几乎）完全一样的进程，每个进程都启动一个从代码的同一位置开始执行的线程。这两个进程中的线程继续执行，就像是两个用户同时启动了该应用程序的两个副本。 通过PID区分父进程和子进程三种状态 在子进程中，fork返回0；如果出现错误，fork返回一个负值。如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AKA卓智 study">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/课件(1)/index.html">
+<meta property="og:site_name" content="AKA卓智 study">
+<meta property="og:description" content="进程通信 first 创建进程 UNIXfork函数命令行通过  man fork  查看功能和用法 fork函数将运行着的程序分成2（多）个（几乎）完全一样的进程，每个进程都启动一个从代码的同一位置开始执行的线程。这两个进程中的线程继续执行，就像是两个用户同时启动了该应用程序的两个副本。 通过PID区分父进程和子进程三种状态 在子进程中，fork返回0；如果出现错误，fork返回一个负值。如果">
+<meta property="og:updated_time" content="2018-04-15T23:22:26.636Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AKA卓智 study">
+<meta name="twitter:description" content="进程通信 first 创建进程 UNIXfork函数命令行通过  man fork  查看功能和用法 fork函数将运行着的程序分成2（多）个（几乎）完全一样的进程，每个进程都启动一个从代码的同一位置开始执行的线程。这两个进程中的线程继续执行，就像是两个用户同时启动了该应用程序的两个副本。 通过PID区分父进程和子进程三种状态 在子进程中，fork返回0；如果出现错误，fork返回一个负值。如果">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="AKA卓智 study" rel="home">AKA卓智 study</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://www.baidu.com">github</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-课件(1)" class="post-课件(1) post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/04/16/课件(1)/" data-id="cjg1ftmr60004cwu3zej13wb5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <hr>
+<h1 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h1><hr>
+<h1 id="first-创建进程-UNIX"><a href="#first-创建进程-UNIX" class="headerlink" title="first 创建进程 UNIX"></a>first 创建进程 UNIX</h1><h4 id="fork函数"><a href="#fork函数" class="headerlink" title="fork函数"></a>fork函数</h4><p>命令行通过 </p>
+<pre><code>man fork 
+</code></pre><p>查看功能和用法</p>
+<p>fork函数将运行着的程序分成2（多）个（几乎）完全一样的进程，每个进程都启动一个从代码的同一位置开始执行的线程。这两个进程中的线程继续执行，就像是两个用户同时启动了该应用程序的两个副本。</p>
+<h3 id="通过PID区分父进程和子进程"><a href="#通过PID区分父进程和子进程" class="headerlink" title="通过PID区分父进程和子进程"></a>通过PID区分父进程和子进程</h3><p>三种状态</p>
+<p>在子进程中，fork返回0；<br>如果出现错误，fork返回一个负值。<br>如果PID的值大于0则是在父进程中</p>
+<pre><code>#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+
+int main(void)
+
+{
+
+   pid_t pid1;
+   pid_t pid2;
+   pid1=fork();    /*这里定义第一个子进程*/
+   pid2=fork();    /*这里定义第二个子进程*/
+   if(pid1&lt;0 || pid2&lt;0)
+          printf(&quot;Error.fock call fail/n&quot;);
+//else if(pid1!=0 &amp;&amp; pid2!=0)
+          //print(&quot;This is the parent process/n&quot;);
+   else if(pid1 == 0)           /*当第一个子进程运行时*/
+          printf(&quot;This is the NO.1 child process/n&quot;);
+   else if(pid2 == 0)           /*当第二个子进程运行时*/
+          printf(&quot;This is the NO.2 child process/n&quot;);
+   else
+          printf(&quot;This is the parent process/n&quot;);
+   printf(&quot;Fork end./n/n&quot;);
+   exit(0);
+}
+</code></pre><p>wait函数实现父进程等待子进程</p>
+<p>进程一旦调用了wait，就立即阻塞自己，由wait自动分析是否当前进程的某个子进程已经退出。如果让它找到了这样一个已经变成僵尸的子进程，wait就会收集这个子进程的信息，并把它彻底销毁后返回；如果没有找到这样一个子进程，wait就会一直阻塞在这里，直到有一个出现为止。</p>
+<p>wait()的函数原型是：</p>
+<pre><code>#include &lt;sys/types.h&gt;  
+#include &lt;sys/wait.h&gt; 
+pid_t wait(int *status)
+</code></pre><p>得到子进程的返回值进行判断</p>
+<h4 id="创建两个子进程"><a href="#创建两个子进程" class="headerlink" title="创建两个子进程"></a>创建两个子进程</h4><h4 id="进程通信-1"><a href="#进程通信-1" class="headerlink" title="进程通信"></a>进程通信</h4><ol>
+<li>管道pipe：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</li>
+<li>命名管道FIFO：有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信</li>
+<li>消息队列MessageQueue</li>
+<li>信号 ( sinal ) </li>
+<li>共享存储SharedMemory</li>
+<li>信号量Semaphore</li>
+</ol>
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><ol>
+<li>管道pipe：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</li>
+<li>命名管道FIFO：有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信</li>
+</ol>
+<p>管道允许在进程之间按先进先出的方式传送数据，是进程间通信的一种常见方式。</p>
+<p>管道是Linux 支持的最初Unix IPC形式之一，具有以下特点：</p>
+<p>1) 管道是半双工的，数据只能向一个方向流动；需要双方通信时，需要建立起两个管道；</p>
+<p>2) 匿名管道只能用于父子进程或者兄弟进程之间（具有亲缘关系的进程）；</p>
+<p>3) 单独构成一种独立的文件系统：管道对于管道两端的进程而言，就是一个文件，但它不是普通的文件，它不属于某种文件系统，而是自立门户，单独构成一种文件系统，并且只存在与内存中。</p>
+<p>管道分为pipe（无名管道）和fifo（命名管道）两种，除了建立、打开、删除的方式不同外，这两种管道几乎是一样的。他们都是通过内核缓冲区实现数据传输。</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;            
+#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/wait.h&gt;
+
+using namespace std;
+main()
+{
+    int fd2[2];                       
+    pid_t pid;
+    pid_t pid1;
+    char in[50];
+    in[0] = &apos;\0&apos;;
+
+    int status;
+    int status_2;
+
+    const char * s = NULL;
+    if(pipe(fd) &lt; 0)                  
+        printf(&quot;Create Pipe Error!\n&quot;);
+    if(pipe(fd2)&lt; 0)                  
+        printf(&quot;Create Pipe Error!\n&quot;);
+
+    if((pid = fork()) &lt; 0)printf(&quot;Fork Error!\n&quot;);
+    else if(pid == 0)                  
+    {    
+
+         if(s == NULL){
+
+               s = &quot;Child process 1 is sending a message&quot;;
+
+            close(fd[0]);
+           write(fd[1],s,strlen(s));       
+               s = NULL;
+        }
+
+        exit(20);
+    } 
+    if(pid &gt; 0 &amp;&amp; wait(&amp;status)&amp;&amp;WIFEXITED(status) != 0&amp;&amp;WEXITSTATUS(status) == 20 ){
+
+        if(strlen(in) == 0){
+
+            close(fd[1]);
+            read(fd[0],in,50);
+              if(strlen(in) != 0)cout&lt;&lt;in&lt;&lt;endl;
+              memset(in,&apos;\0&apos;,50);
+              fflush(stdin);
+          }
+    } 
+
+
+
+    if((pid1 = fork()&amp;&amp;pid != 0) &lt; 0) printf(&quot;Fork2 Error\n&quot;);
+
+    else if(pid1 == 0){
+
+
+        if(s == NULL){
+
+               s = &quot;Child process 2 is sending a message&quot;;
+
+            close(fd2[0]);                
+            write(fd2[1],s,strlen(s));
+               s = NULL;
+
+        }
+
+        exit(10);
+    }
+     if(pid1 &gt; 0&amp;&amp;wait(&amp;status_2)&amp;&amp;WIFEXITED(status_2) != 0&amp;&amp;WEXITSTATUS(status_2) == 10 ){
+
+        if(strlen(in) == 0){
+            close(fd2[1]);
+            read(fd2[0],in,sizeof(in));
+              if(strlen(in) != 0)cout&lt;&lt;in&lt;&lt;endl;
+              memset(in,&apos;\0&apos;,sizeof(in));
+          }
+    }
+
+  }     
+</code></pre>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/04/16/课件(1)/">
+    <time datetime="2018-04-15T23:23:18.874Z" class="entry-date">
+        2018-04-16
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2018/03/23/OSstudy1/" rel="next">OS进程 study <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search">
+<form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Music</h3>
+    <div class="widget-content">
+      <audio src="https://raw.githubusercontent.com/SWBMESSI/SWBMESSI.github.io/gh-pages/BS.mp3" controls="controls"
+             style="width:100%">
+        您的浏览器不支持 audio 标签。
+      </audio>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/16/课件(1)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/OSstudy1/">OS进程 study</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/校园网(1)/">校园网绕过web认证</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/pic/">MY style</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/10/titile(1)/">first</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 SWBMESSI
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
